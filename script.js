@@ -1,7 +1,4 @@
-const likeButton = document.getElementById("likeBtn");
-const likeCounter = document.getElementById("likeCount");
 
-let count = 0;
 
 let uploadedImage = null;
 const placeholderImage = "spaghetti-bolognese.jpg";
@@ -9,10 +6,6 @@ let searchedIngredients = null;
 let searchedInstructions = null;
 let searchedImage = null;
 
-likeButton.addEventListener("click", function () {
-  count++;
-  likeCounter.textContent = count;
-});
 
 //funktion för att ladda upp bild. sparas i uploadedImage
 document.getElementById("image").addEventListener("change", function (e) {
@@ -20,15 +13,27 @@ document.getElementById("image").addEventListener("change", function (e) {
 
   if (file) {
     const reader = new FileReader();
-    reader.readAsDataURL(file);
+    //reader.readAsDataURL(file);
 
-    uploadedImage = file;
+    //console.log(file);
+    
+
+    //uploadedImage = file;
+
+    reader.onload = function(event) {
+      uploadedImage = event.target.result; // Save the image as a data URL
+    };
+
+    reader.readAsDataURL(file); // Read the file as a data URL
   }
 });
 
+const formEl = document.getElementById("form");
+
 //funktion för att submitta formuläret
-document.getElementById("form").addEventListener("submit", function (e) {
+formEl.addEventListener("submit", function (e) {
   let valid = true;
+  e.preventDefault();
 
   const image = uploadedImage;
   const name = document.getElementById("name").value;
@@ -44,11 +49,12 @@ document.getElementById("form").addEventListener("submit", function (e) {
     form.appendChild(error);
   }
 
-  if (!valid) {
-    e.preventDefault();
+  if (valid) {
+    createRecipeCard(name, ingredients, instruction, image);
+
+    //formEl.submit();
   }
 
-  createRecipeCard(name, ingredients, instruction, image)
 });
 
 //funktion för att söka på recept
@@ -84,9 +90,11 @@ document
   });
 
 
-  const recipeCardsContainer = document.getElementById("recipeCardsContainer");
+const recipeCardsContainer = document.getElementById("recipeCardsContainer");
 
 function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
+  console.log(imgSrc);
+  
 
   const newRecipeCard = document.createElement("div");
   newRecipeCard.className = "recipeCard";
@@ -100,7 +108,14 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
   newFigure.appendChild(newRecipeImgContainer);
   
   const newRecipeImg = document.createElement("img");
-  newRecipeImg.src = "public/spaghetti-bolognese.jpg" // change to imgSrc
+ // newRecipeImg.src = "public/spaghetti-bolognese.jpg" // change to imgSrc
+ if (imgSrc == null) {
+
+   newRecipeImg.src = "public/spaghetti-bolognese.jpg" // change to imgSrc
+ } else {
+  newRecipeImg.src = imgSrc // change to imgSrc
+
+ }
   newRecipeImgContainer.appendChild(newRecipeImg);
 
   const newRecipeInfo = document.createElement("div");
@@ -137,6 +152,10 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
   newFigure.appendChild(newLikeBtn);
   ///////
 
+  const newRemoveButton = document.createElement("button");
+  newRemoveButton.textContent = "X";
+//  newRemoveButton.style.color = "white";
+  newFigure.appendChild(newRemoveButton);
 
   // info-icon... tänkte använda för att öppna upp en ny ruta med mer info...
   /* 

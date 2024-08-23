@@ -50,10 +50,13 @@ h1 {
 
 
 .recipeCardsContainer {
+  overflow-x: scroll;
   content: '';
   display: flex;
   gap: 0.5rem;
-  height: 30rem;
+  height: 60rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   width: 80%;
   align-items: center;
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
@@ -65,7 +68,7 @@ h1 {
 .recipeCard {
   display: flex;
   flex-direction: column;
-  height: 18rem;
+  height: 40rem;
   width: 14rem;
   padding: 2rem;
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
@@ -113,6 +116,11 @@ h1 {
   flex-direction: column;
   width: 100%;
  /*  justify-content: space-between; */
+}
+
+.recipeInfo p {
+  width: 100%;
+  overflow-wrap: break-word;
 }
 
 .recipeInfo button {
