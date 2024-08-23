@@ -19,6 +19,30 @@ h1 {
   color: #ffffff;
 }
 
+.likeBtn {
+  border: none;
+  color: black;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+
+.likeBtn:hover {
+  background-color: #00ff00;
+}
+
+#likeCount {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+
 .recipeCardsContainer {
   display: flex;
   gap: 0.5rem;
