@@ -60,10 +60,11 @@ document
     );
     const data = await response.json();
     console.log(data);
-    const instructions = data.meals[0].strInstructions;
     const meal = data.meals[0];
+    const instructions = meal.strInstructions;
     const ingredients = [];
 
+    //loopar igenom all strIngredients och strMeasure
     for (let i = 1; i <= 20; i++) {
       const ingredient = meal[`strIngredient${i}`];
       const measure = meal[`strMeasure${i}`];
@@ -76,6 +77,11 @@ document
     searchedIngredients = ingredients;
     searchedInstructions = instructions;
     searchedImage = meal.strMealThumb;
+
+    document.querySelector("form textarea").textContent = ingredients;
+    document.querySelector("form textarea:nth-of-type(2)").textContent =
+      instructions;
+    document.querySelector("form input").value = searchName;
 
     console.log("ingredients are:", ingredients);
     console.log("Instructions are:", instructions);
