@@ -24,3 +24,20 @@ document.getElementById("form").addEventListener("submit", function (e) {
   const page = document.getElementById("body");
   page.appendChild();
 });
+
+document.getElementById("image").addEventListener("change", function (e) {
+  const file = e.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const img = document.createElement("img");
+      img.src = e.target.result;
+
+      document.getElementById("form").appendChild(img);
+    };
+
+    reader.readAsDataURL(file);
+  }
+});
