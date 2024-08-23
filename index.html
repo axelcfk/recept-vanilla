@@ -9,12 +9,28 @@
   <body>
     <div class="container">
       <h1>Recipes and stuff</h1>
+      <div>
+        <form id="form">
+          <div>
+            <h2 id>Name</h2>
+            <input type="text" id="name" />
+          </div>
+
+          <h2>Ingredients</h2>
+          <textarea name="" id="ingredients" cols="30" rows="10"></textarea>
+
+          <h2>Instruction</h2>
+          <textarea name="" id="instruction" cols="30" rows="10"></textarea>
+
+          <button id="save">Save Recipe</button>
+        </form>
+      </div>
 
       <div class="login-form">
-      <input type="text" placeholder="Username" id="username" />
-      <input type="password" placeholder="password" id="password" />
-      <button type="submit">Login</button>
-    </div>
+        <input type="text" placeholder="Username" id="username" />
+        <input type="password" placeholder="password" id="password" />
+        <button type="submit">Login</button>
+      </div>
 
       <div class="recipeCardsContainer">
         <div class="recipeCard">
@@ -30,7 +46,6 @@
             </div>
             <div class="iconContainer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-               
                 <path
                   d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
                   fill="white"
@@ -50,7 +65,6 @@
             </div>
             <div class="iconContainer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-               
                 <path
                   d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
                   fill="white"
@@ -70,7 +84,6 @@
             </div>
             <div class="iconContainer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-               
                 <path
                   d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
                   fill="white"
@@ -90,7 +103,6 @@
             </div>
             <div class="iconContainer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-               
                 <path
                   d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
                   fill="white"
@@ -100,7 +112,6 @@
           </figure>
         </div>
       </div>
-      
 
       <!-- <div class="recipeModal">
         <figure>

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  
+
   height: 100dvh;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@ body {
 
 .container {
   text-align: center;
-  min-height: 100%;
+  height: 100%;
 }
 
 h1 {
@@ -54,7 +54,7 @@ h1 {
   height: 18rem;
   width: 14rem;
   padding: 2rem;
-  box-shadow: 0 0 3rem rgba(0, 0, 0, .2);
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
 }
 
 .recipeModal {
@@ -63,10 +63,11 @@ h1 {
   height: 18rem;
   width: 14rem;
   padding: 2rem;
-  box-shadow: 0 0 3rem rgba(0, 0, 0, .2);
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
 }
 
-.recipeCard figure, .recipeModal figure {
+.recipeCard figure,
+.recipeModal figure {
   box-sizing: border-box;
   height: 100%;
   display: flex;
@@ -76,7 +77,7 @@ h1 {
   align-items: start;
 
   width: 100%;
-  margin: 0; 
+  margin: 0;
 }
 
 .recipeImgContainer {
@@ -85,7 +86,8 @@ h1 {
   justify-content: center;
 }
 
-.recipeCard figure img, .recipeModal figure img  {
+.recipeCard figure img,
+.recipeModal figure img {
   box-sizing: border-box;
   max-height: 10rem;
   width: auto;
@@ -103,23 +105,24 @@ h1 {
   border-width: 0.5px;
 }
 
-.recipeCard .iconContainer, .recipeModal .iconContainer {
+.recipeCard .iconContainer,
+.recipeModal .iconContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 3rem;
   width: 100%;
-
 }
 
-.recipeCard .iconContainer svg, .recipeModal .iconContainer svg {
+.recipeCard .iconContainer svg,
+.recipeModal .iconContainer svg {
   width: 1.5rem; /* same as container height */
   height: 1.5rem;
   border-radius: 1.5rem;
- 
+
   padding: 0.25rem;
   border-style: solid;
-  border-width: 0.10rem;
+  border-width: 0.1rem;
   border-color: white;
 }
 .login-form {
