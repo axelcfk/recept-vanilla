@@ -8,6 +8,13 @@
   </head>
   <body>
     <div class="container">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="search any recipe..."
+      />
+      <button id="searchButton">Search</button>
       <h1>Recipes and stuff</h1>
       <div>
         <form id="form">
@@ -21,6 +28,9 @@
 
           <h2>Instruction</h2>
           <textarea name="" id="instruction" cols="30" rows="10"></textarea>
+
+          <h2>Image</h2>
+          <input type="file" id="image" accept="image/*" />
 
           <button id="save">Save Recipe</button>
         </form>
@@ -94,3 +104,8 @@
         </figure>
         <div></div>
       </div> -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
