@@ -126,13 +126,64 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
   newFigCaption.textContent = name; // name from props
   newRecipeInfo.appendChild(newFigCaption);
 
+  const newIngredientsContainer = document.createElement("div");
+  newIngredientsContainer.className = "newIngredientsContainer";
+  newRecipeInfo.appendChild(newIngredientsContainer);
+
   const newIngredientsText = document.createElement("p");
   newIngredientsText.textContent = ingredients;
-  newRecipeInfo.appendChild(newIngredientsText);
+  newIngredientsContainer.appendChild(newIngredientsText);
+
+  const newEditIngredientsButton = document.createElement("button");
+  newEditIngredientsButton.textContent = "Edit";    
+  newEditIngredientsButton.style.width = "3rem";
+
+  const newInputField = document.createElement("input");
+
+
+  newEditIngredientsButton.addEventListener("click", (() => {
+    newIngredientsText.remove();
+    newIngredientsContainer.appendChild(newInputField);
+    newInputField.value = ingredients;
+
+    
+  }))
+  newIngredientsContainer.appendChild(newEditIngredientsButton);
+
+
+  const saveNewIngredientsButton = document.createElement("button");
+  saveNewIngredientsButton.style.width = "3rem";
+  saveNewIngredientsButton.textContent = "Save";
+
+
+  saveNewIngredientsButton.addEventListener("click", (() => {
+    const newIngredientsText = document.createElement("p");
+    newIngredientsText.textContent = newInputField.value;
+
+    newIngredientsContainer.appendChild(newIngredientsText);
+
+    newInputField.remove();
+
+  }))
+
+  newIngredientsContainer.appendChild(saveNewIngredientsButton);
+  
+
+
+
+
+
+  const newInstructionContainer = document.createElement("div");
+  newInstructionContainer.className = "newInstructionContainer";
+  newRecipeInfo.appendChild(newInstructionContainer);
 
   const newInstructionText = document.createElement("p");
   newInstructionText.textContent = instruction;
-  newRecipeInfo.appendChild(newInstructionText);
+  //newInstructionText.style.maxHeight = "100%";
+ // newInstructionText.style.overflowY = "scroll";
+ newInstructionContainer.appendChild(newInstructionText);
+
+
 
   /////// mickes like button 
   const newLikeBtn = document.createElement("button");

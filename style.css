@@ -148,6 +148,13 @@ h1 {
   border-width: 0.1rem;
   border-color: white;
 }
+
+.newIngredientsContainer, .newInstructionContainer {
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
