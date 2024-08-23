@@ -32,87 +32,48 @@
         <button type="submit">Login</button>
       </div>
 
-      <div class="recipeCardsContainer">
-        <div class="recipeCard">
-          <figure>
-            <div class="recipeImgContainer">
-              <img src="public/spaghetti-bolognese.jpg" alt="recipeImg" />
-            </div>
-            <div class="recipeInfo">
-              <figcaption>Spaghetti Bolognese</figcaption>
-              <button id="likeBtn" class="likeBtn">
-                👍<span id="likeCount">0</span>
-              </button>
-            </div>
-            <div class="iconContainer">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-                <path
-                  d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-          </figure>
-        </div>
-        <div class="recipeCard">
-          <figure>
-            <div class="recipeImgContainer">
-              <img src="public/spaghetti-bolognese.jpg" alt="recipeImg" />
-            </div>
-            <div class="recipeInfo">
-              <figcaption>Spaghetti Bolognese</figcaption>
-              <button>Like</button>
-            </div>
-            <div class="iconContainer">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-                <path
-                  d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-          </figure>
-        </div>
-        <div class="recipeCard">
-          <figure>
-            <div class="recipeImgContainer">
-              <img src="public/spaghetti-bolognese.jpg" alt="recipeImg" />
-            </div>
-            <div class="recipeInfo">
-              <figcaption>Spaghetti Bolognese</figcaption>
-              <button>Like</button>
-            </div>
-            <div class="iconContainer">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-                <path
-                  d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-          </figure>
-        </div>
-        <div class="recipeCard">
-          <figure>
-            <div class="recipeImgContainer">
-              <img src="public/spaghetti-bolognese.jpg" alt="recipeImg" />
-            </div>
-            <div class="recipeInfo">
-              <figcaption>Spaghetti Bolognese</figcaption>
-              <button>Like</button>
-            </div>
-            <div class="iconContainer">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
-                <path
-                  d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-          </figure>
-        </div>
+      <div id="recipeCardsContainer" class="recipeCardsContainer">
+          
       </div>
 
+     
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
+
+
+
+
+
+<!-- Så här ser recipe-korten ut som skapas (minus iconContainer): -->
+
+        <!-- <div class="recipeCard">
+          <figure>
+            <div class="recipeImgContainer">
+              <img src="public/spaghetti-bolognese.jpg" alt="recipeImg" />
+            </div>
+            <div class="recipeInfo">
+              <figcaption>Spaghetti Bolognese</figcaption>
+              <p>Lorem ipsm sbdoasdob asndi asd asd asd</p>
+            </div>
+            <button id="likeBtn" class="likeBtn">
+                👍<span id="likeCount">0</span>
+              </button>
+            <div class="iconContainer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                <path
+                  d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+          </figure>
+        </div> -->    
+
+
+         <!-- pop-up for more info (not used) -->
       <!-- <div class="recipeModal">
         <figure>
           <div class="recipeImgContainer">
@@ -133,8 +94,3 @@
         </figure>
         <div></div>
       </div> -->
-    </div>
-
-    <script src="index.js"></script>
-  </body>
-</html>
