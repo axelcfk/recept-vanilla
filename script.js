@@ -1,11 +1,8 @@
-
-
 let uploadedImage = null;
 const placeholderImage = "spaghetti-bolognese.jpg";
 let searchedIngredients = null;
 let searchedInstructions = null;
 let searchedImage = null;
-
 
 //funktion för att ladda upp bild. sparas i uploadedImage
 document.getElementById("image").addEventListener("change", function (e) {
@@ -16,11 +13,10 @@ document.getElementById("image").addEventListener("change", function (e) {
     //reader.readAsDataURL(file);
 
     //console.log(file);
-    
 
     //uploadedImage = file;
 
-    reader.onload = function(event) {
+    reader.onload = function (event) {
       uploadedImage = event.target.result; // Save the image as a data URL
     };
 
@@ -54,7 +50,6 @@ formEl.addEventListener("submit", function (e) {
 
     //formEl.submit();
   }
-
 });
 
 //funktion för att söka på recept
@@ -68,10 +63,11 @@ document
     );
     const data = await response.json();
     console.log(data);
-    const instructions = data.meals[0].strInstructions;
     const meal = data.meals[0];
+    const instructions = meal.strInstructions;
     const ingredients = [];
 
+    //loopar igenom all strIngredients och strMeasure
     for (let i = 1; i <= 20; i++) {
       const ingredient = meal[`strIngredient${i}`];
       const measure = meal[`strMeasure${i}`];
@@ -85,16 +81,19 @@ document
     searchedInstructions = instructions;
     searchedImage = meal.strMealThumb;
 
+    document.querySelector("form textarea").textContent = ingredients;
+    document.querySelector("form textarea:nth-of-type(2)").textContent =
+      instructions;
+    document.querySelector("form input").value = searchName;
+
     console.log("ingredients are:", ingredients);
     console.log("Instructions are:", instructions);
   });
 
-
 const recipeCardsContainer = document.getElementById("recipeCardsContainer");
 
-function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
+function createRecipeCard(name, ingredients, instruction, imgSrc = null) {
   console.log(imgSrc);
-  
 
   const newRecipeCard = document.createElement("div");
   newRecipeCard.className = "recipeCard";
@@ -106,16 +105,14 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
   const newRecipeImgContainer = document.createElement("div");
   newRecipeImgContainer.className = "recipeImgContainer";
   newFigure.appendChild(newRecipeImgContainer);
-  
+
   const newRecipeImg = document.createElement("img");
- // newRecipeImg.src = "public/spaghetti-bolognese.jpg" // change to imgSrc
- if (imgSrc == null) {
-
-   newRecipeImg.src = "public/spaghetti-bolognese.jpg" // change to imgSrc
- } else {
-  newRecipeImg.src = imgSrc // change to imgSrc
-
- }
+  // newRecipeImg.src = "public/spaghetti-bolognese.jpg" // change to imgSrc
+  if (imgSrc == null) {
+    newRecipeImg.src = "public/spaghetti-bolognese.jpg"; // change to imgSrc
+  } else {
+    newRecipeImg.src = imgSrc; // change to imgSrc
+  }
   newRecipeImgContainer.appendChild(newRecipeImg);
 
   const newRecipeInfo = document.createElement("div");
@@ -185,7 +182,7 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
 
 
 
-  /////// mickes like button 
+  /////// mickes like button
   const newLikeBtn = document.createElement("button");
   newLikeBtn.className = "likeBtn";
   newLikeBtn.id = "likeBtn";
@@ -194,7 +191,7 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
   const newLikeBtnCounter = document.createElement("span");
   newLikeBtnCounter.textContent = "0";
   newLikeBtn.appendChild(newLikeBtnCounter);
-  
+
   let count = 0;
   newLikeBtn.addEventListener("click", function () {
     count++;
@@ -205,7 +202,7 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
 
   const newRemoveButton = document.createElement("button");
   newRemoveButton.textContent = "X";
-//  newRemoveButton.style.color = "white";
+  //  newRemoveButton.style.color = "white";
   newFigure.appendChild(newRemoveButton);
 
   // info-icon... tänkte använda för att öppna upp en ny ruta med mer info...
@@ -228,7 +225,40 @@ function createRecipeCard ( name, ingredients, instruction, imgSrc = null ) {
   newSvg.appendChild(newPath);
   newIconContainer.appendChild(newSvg);
  */
-  
 }
 
+// Login functionality
+document
+  .getElementById("loginButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default form submission
 
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const loginError = document.getElementById("loginError");
+
+    // Basic validation: Ensure username and password are not empty
+    if (username === "" || password === "") {
+      loginError.textContent = "Please enter both username and password.";
+      return; // Stop further execution if validation fails
+    }
+
+    // Retrieve stored credentials from localStorage
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
+
+    // If no credentials are stored, save the entered credentials
+    if (!storedUsername || !storedPassword) {
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+      loginError.textContent = ""; // Clear any previous error messages
+      alert("Login successful! Credentials stored.");
+    } else if (username === storedUsername && password === storedPassword) {
+      // If credentials match, login is successful
+      loginError.textContent = ""; // Clear any previous error messages
+      alert("Login successful!");
+    } else {
+      // If credentials don't match, show an error message
+      loginError.textContent = "Incorrect username or password.";
+    }
+  });
