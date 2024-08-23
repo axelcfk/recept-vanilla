@@ -203,6 +203,9 @@ function createRecipeCard(name, ingredients, instruction, imgSrc = null) {
   const newRemoveButton = document.createElement("button");
   newRemoveButton.textContent = "X";
   //  newRemoveButton.style.color = "white";
+  newRemoveButton.addEventListener("click", (() => {
+    newRecipeCard.remove();
+  }))
   newFigure.appendChild(newRemoveButton);
 
   // info-icon... tänkte använda för att öppna upp en ny ruta med mer info...
