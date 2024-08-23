@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  height: 100vh;
+  
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +11,7 @@ body {
 
 .container {
   text-align: center;
+  min-height: 100%;
 }
 
 h1 {
@@ -17,16 +19,30 @@ h1 {
   color: #ffffff;
 }
 
+.recipeCardsContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .recipeCard {
   display: flex;
   flex-direction: column;
   height: 18rem;
-  width: 18rem;
+  width: 14rem;
   padding: 2rem;
   box-shadow: 0 0 3rem rgba(0, 0, 0, .2);
 }
 
-.recipeCard figure {
+.recipeModal {
+  display: flex;
+  flex-direction: column;
+  height: 18rem;
+  width: 14rem;
+  padding: 2rem;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, .2);
+}
+
+.recipeCard figure, .recipeModal figure {
   box-sizing: border-box;
   height: 100%;
   display: flex;
@@ -39,30 +55,31 @@ h1 {
   margin: 0; 
 }
 
-.recipeCardImgContainer {
+.recipeImgContainer {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.recipeCard figure img {
+.recipeCard figure img, .recipeModal figure img  {
   box-sizing: border-box;
   max-height: 10rem;
   width: auto;
+  max-width: 100%;
 }
 
-.recipeCardInfo {
+.recipeInfo {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.recipeCardInfo button {
+.recipeInfo button {
   background-color: white;
   border-width: 0.5px;
 }
 
-.recipeCard .iconContainer {
+.recipeCard .iconContainer, .recipeModal .iconContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +88,7 @@ h1 {
 
 }
 
-.recipeCard .iconContainer svg {
+.recipeCard .iconContainer svg, .recipeModal .iconContainer svg {
   width: 1.5rem; /* same as container height */
   height: 1.5rem;
   border-radius: 1.5rem;
@@ -81,4 +98,43 @@ h1 {
   border-width: 0.10rem;
   border-color: white;
 }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Slightly transparent background */
+  border-radius: 8px;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 300px; /* Keeps it compact */
+}
 
+.login-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.login-form button {
+  padding: 0.5rem 1rem;
+  background-color: #ff7e5f; /* Matches your background gradient */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #feb47b; /* Slightly lighter on hover */
+}
