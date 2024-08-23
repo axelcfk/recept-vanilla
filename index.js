@@ -3,15 +3,31 @@ const likeCounter = document.getElementById("likeCount");
 
 let count = 0;
 
+let uploadedImage = null;
+const placeholderImage = "spaghetti-bolognese.jpg";
+
 likeButton.addEventListener("click", function () {
   count++;
   likeCounter.textContent = count;
-});document.getElementById("form").addEventListener("submit", function (e) {
+});
+
+document.getElementById("image").addEventListener("change", function (e) {
+  const file = e.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    uploadedImage = file;
+  }
+});
+document.getElementById("form").addEventListener("submit", function (e) {
   let valid = true;
 
+  const image = uploadedImage;
   const name = document.getElementById("name").value;
-  const ingredients = document.getElementById("name").value;
-  const instruction = document.getElementById("name").value;
+  const ingredients = document.getElementById("ingredients").value;
+  const instruction = document.getElementById("instruction").value;
 
   if (name || ingredients || instruction === "") {
     valid = false;
@@ -24,28 +40,5 @@ likeButton.addEventListener("click", function () {
 
   if (!valid) {
     e.preventDefault();
-  }
-
-  const header = document.querySelector("figure div:nth-of-type(2) figcaption");
-  header.textContent = name;
-
-  const page = document.getElementById("body");
-  page.appendChild();
-});
-
-document.getElementById("image").addEventListener("change", function (e) {
-  const file = e.target.files[0];
-
-  if (file) {
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-      const img = document.createElement("img");
-      img.src = e.target.result;
-
-      document.getElementById("form").appendChild(img);
-    };
-
-    reader.readAsDataURL(file);
   }
 });
