@@ -13,6 +13,7 @@ document.getElementById("image").addEventListener("change", function (e) {
     //reader.readAsDataURL(file);
 
     //console.log(file);
+    // test
 
     //uploadedImage = file;
 
